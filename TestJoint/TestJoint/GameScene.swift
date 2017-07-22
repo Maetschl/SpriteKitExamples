@@ -11,9 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
     override func didMove(to view: SKView) {
         
         let nodeSize = CGSize(width: 10, height: 10)
