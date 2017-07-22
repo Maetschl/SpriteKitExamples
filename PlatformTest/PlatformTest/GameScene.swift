@@ -27,6 +27,12 @@ class GameScene: SKScene {
         down2.physicsBody?.categoryBitMask = 0b0010 // Same mask
     }
     
+    override func sceneDidLoad() {
+        let a = self
+        debugPrint(self)
+        debugPrint("TEST")
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         player.physicsBody?.collisionBitMask = 0b0000 // Reset the mask
         
