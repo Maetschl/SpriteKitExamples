@@ -20,6 +20,9 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         var color: SKColor = .black
+        let tileRowIndex = tileMap.tileRowIndex(fromPosition: pos)
+        let tileColumnIndex = tileMap.tileColumnIndex(fromPosition: pos)
+        debugPrint("Click on: \(tileRowIndex),\(tileColumnIndex)")
         if tileMap.contains(pos) {
             // red
         } else {
