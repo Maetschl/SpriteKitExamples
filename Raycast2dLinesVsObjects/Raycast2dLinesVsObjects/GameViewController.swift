@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  TileMapExamples
+//  Raycast2dLinesVsObjects
 //
-//  Created by Julian Arias Maetschl on 08-03-20.
+//  Created by Julian Arias Maetschl on 10-03-20.
 //  Copyright © 2020 Maetschl. All rights reserved.
 //
 
@@ -26,7 +26,6 @@ class GameViewController: UIViewController {
             }
             
             view.ignoresSiblingOrder = true
-            view.showsPhysics = true
             
             view.showsFPS = true
             view.showsNodeCount = true

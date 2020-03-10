@@ -15,6 +15,42 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.tileMap = childNode(withName: "tileMap") as? SKTileMapNode
+        setOneBodyForAllNodes()
+        self.tileMap.alpha = 0.2
+    }
+
+    func setBodyPerNode() {
+        let tileSize = self.tileMap.tileSize
+        for row in 1...self.tileMap.numberOfRows {
+            for col in 1...self.tileMap.numberOfColumns {
+                if row == col {
+                    let node = SKSpriteNode(color: .lightGray, size: tileSize)
+                    node.position = CGPoint(x: CGFloat(col-2)*tileSize.width, y: CGFloat(row-2)*tileSize.height)
+                    node.physicsBody = SKPhysicsBody(rectangleOf: tileSize)
+                    node.physicsBody?.affectedByGravity = false
+                    addChild(node)
+                }
+            }
+        }
+    }
+
+    func setOneBodyForAllNodes() {
+        let tileSize = self.tileMap.tileSize
+        let baseNode = SKNode()
+        for row in 1...self.tileMap.numberOfRows {
+            for col in 1...self.tileMap.numberOfColumns {
+                if row == col {
+                    let node = SKSpriteNode(color: .lightGray, size: tileSize)
+                    node.position = CGPoint(x: CGFloat(col-2)*tileSize.width, y: CGFloat(row-2)*tileSize.height)
+                    node.physicsBody = SKPhysicsBody(rectangleOf: tileSize)
+                    baseNode.addChild(node)
+                }
+            }
+        }
+        debugPrint(baseNode.children.compactMap({ $0.physicsBody }))
+        baseNode.physicsBody = SKPhysicsBody(bodies: baseNode.children.compactMap({ $0.physicsBody }))
+        baseNode.physicsBody?.affectedByGravity = false
+        self.addChild(baseNode)
     }
     
     
