@@ -16,8 +16,7 @@ class GameScene: SKScene {
     var playerStateMachine: GKStateMachine?
     
     override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
+
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
 
         if let player = player {
@@ -43,6 +42,8 @@ class GameScene: SKScene {
 
 }
 
+// PlayerRunning should have its own file PlayerRunning.swift
+// It's here only for example purposes
 class PlayerRunning: GKState {
 
     unowned var player: SKSpriteNode?
@@ -60,6 +61,8 @@ class PlayerRunning: GKState {
 
 }
 
+// PlayerJumping should have its own file PlayerJumping.swift
+// It's here only for example purposes
 class PlayerJumping: GKState {
 
     unowned var player: SKSpriteNode?
