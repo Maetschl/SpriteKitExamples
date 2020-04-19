@@ -30,8 +30,8 @@ class GameScene: SKScene {
 
     func makeCircularRange(to node: SKNode) {
         let range = SKRange(lowerLimit: 0, upperLimit: 100)
-        let contraint = SKConstraint.distance(range, to: .zero)
-        node.constraints = [contraint]
+        let constraint = SKConstraint.distance(range, to: .zero)
+        node.constraints = [constraint]
     }
     
 
