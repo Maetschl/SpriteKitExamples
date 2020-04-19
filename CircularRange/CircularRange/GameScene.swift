@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene {
 
+    let range = SKRange(lowerLimit: 0, upperLimit: 100)
+
     override func didMove(to view: SKView) {
 
         for index in 0 ... 600 {
@@ -26,13 +28,20 @@ class GameScene: SKScene {
             addChild(node)
         }
 
+        drawCircularRangeBy(range: range)
+
     }
 
     func makeCircularRange(to node: SKNode) {
-        let range = SKRange(lowerLimit: 0, upperLimit: 100)
         let constraint = SKConstraint.distance(range, to: .zero)
         node.constraints = [constraint]
     }
-    
+
+    func drawCircularRangeBy(range: SKRange) {
+        let radius = range.upperLimit
+        let node = SKShapeNode(circleOfRadius: radius)
+        node.strokeColor = .white
+        addChild(node)
+    }
 
 }
