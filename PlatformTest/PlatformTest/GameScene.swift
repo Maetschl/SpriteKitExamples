@@ -22,7 +22,7 @@ class GameScene: SKScene {
         down1 = self.childNode(withName: "down1") as! SKSpriteNode
         down2 = self.childNode(withName: "down2") as! SKSpriteNode
         player = self.childNode(withName: "player") as! SKSpriteNode
-        up1.physicsBody?.categoryBitMask = 0b0001 // Mask for UoPlatforms
+        up1.physicsBody?.categoryBitMask = 0b0001 // Mask for UPlatforms
         down1.physicsBody?.categoryBitMask = 0b0010 // Mask for downPlatforms
         down2.physicsBody?.categoryBitMask = 0b0010 // Same mask
     }
